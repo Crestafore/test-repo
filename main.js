@@ -24,13 +24,18 @@ class App extends React.Component {
 
     render() {
         return (
-            <ListView dataSource={this.state.dataSource} renderRow={(rowData) => <Text>{rowData}</Text>}/>
+            <ListView dataSource={this.state.dataSource}
+                      renderRow={(rowData) =>
+                          <View style={{backgroundColor: 'powderblue'}}>
+                              <Text>{rowData}</Text>
+                          </View>}/>
+
         );
     }
 
 
     parseMyData = function (response) {
-        var jsonData = JSON.parse(response._bodyInit);
+        let jsonData = JSON.parse(response._bodyInit);
         jsonData.forEach(function (data) {
             console.log(data.Link);
         });
